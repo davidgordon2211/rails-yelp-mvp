@@ -1,0 +1,19 @@
+<div class="container">
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+  <%= link_to "Back to restaurants", restaurants_path, class:"btn btn-primary" %>
+  <%= link_to "Edit Restaurant", edit_restaurant_path, class:"btn btn-info" %>
+  <%= link_to "Review Restaurant", new_restaurant_review_path(@restaurant), class:"btn btn-dark" %>
+<%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete,class:"btn btn-danger" %>
+<br>
+<br>
+<br>
+<% @restaurant.reviews.each do |r| %>
+  <p><%= r.content %></p>
+  <p><%= r.rating %></p>
+<% end %>
+</div>
+
+
